@@ -8,7 +8,8 @@
     "ios": "expo start -c --ios",
     "web": "expo start -c --web",
     "clean": "rm -rf .expo node_modules",
-    "lint": "eslint . --ext .ts,.tsx"
+    "lint": "eslint . --ext .ts,.tsx",
+    "expo-doctor": "expo-doctor"
   },
   "dependencies": {
     "@rn-primitives/portal": "~1.4.0",
@@ -46,6 +47,7 @@
     "eslint-config-expo": "~56.0.4",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.6",
+    "expo-doctor": "1.20.4",
     "prettier": "^3.9.8",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "typescript": "~6.0.3"
