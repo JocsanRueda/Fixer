@@ -1,5 +1,5 @@
+// @ts-ignore: side-effect import of CSS file has no type declarations
 import "@/global.css";
-
 import { NAV_THEME } from "@/lib/theme";
 import { ThemeProvider } from "expo-router/react-navigation";
 import { PortalHost } from "@rn-primitives/portal";
