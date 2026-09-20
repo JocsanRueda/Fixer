@@ -1,12 +1,21 @@
 const { defineConfig } = require("eslint/config");
 const expoConfig = require("eslint-config-expo/flat");
 const eslintPluginPrettierRecommended = require("eslint-plugin-prettier/recommended");
+const typescriptEslintPlugin = require("@typescript-eslint/eslint-plugin");
 
 module.exports = defineConfig([
   expoConfig,
   eslintPluginPrettierRecommended,
   {
-    ignores: ["dist/*", ".expo/*"],
+    ignores: [
+      "dist/*",
+      ".expo/*",
+      "expo-env.d.ts",
+      "nativewind-env.d.ts",
+      "android/*",
+      "ios/*",
+      "node_modules/*",
+    ],
   },
   {
     rules: {
@@ -18,6 +27,15 @@ module.exports = defineConfig([
           maxEOF: 0,
         },
       ],
+      "no-console": ["warn", { allow: ["warn", "error"] }],
+    },
+  },
+  {
+    files: ["**/*.ts", "**/*.tsx"],
+    plugins: {
+      "@typescript-eslint": typescriptEslintPlugin,
+    },
+    rules: {
       "@typescript-eslint/consistent-type-imports": [
         "error",
         {
@@ -26,7 +44,6 @@ module.exports = defineConfig([
         },
       ],
       "@typescript-eslint/no-explicit-any": "warn",
-      "no-console": ["warn", { allow: ["warn", "error"] }],
     },
   },
 ]);
