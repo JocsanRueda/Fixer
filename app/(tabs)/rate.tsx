@@ -1,6 +1,7 @@
 import { TabScreen } from "@/components/navigation/tab-screen";
 import { OfferSummaryCard } from "@/components/ui/offer-summary-card";
 import { Truck } from "lucide-react-native";
+import { ClientAvatar } from "@/components/ui/client-avatar";
 
 export default function RateScreen() {
   return (
@@ -26,6 +27,12 @@ export default function RateScreen() {
         itemClassName="py-5" // padding/alineación de cada columna
         variant="default" // o "card" para usar colores del theme (bg-card/border-border)
         borderClassName="border-white/20"
+      />
+      <ClientAvatar
+        name="Maria Rueda"
+        size="lg"
+        color="secondary"
+        imageUrl={"https://avatars.githubusercontent.com/u/69878030?s=96&v=4"}
       />
     </TabScreen>
   );
