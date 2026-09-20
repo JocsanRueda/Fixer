@@ -2,6 +2,7 @@ import { TabScreen } from "@/components/navigation/tab-screen";
 import { OfferSummaryCard } from "@/components/ui/offer-summary-card";
 import { Truck } from "lucide-react-native";
 import { ClientAvatar } from "@/components/ui/client-avatar";
+import { Rating } from "@/components/ui/rating";
 
 export default function RateScreen() {
   return (
@@ -34,6 +35,7 @@ export default function RateScreen() {
         color="secondary"
         imageUrl={"https://avatars.githubusercontent.com/u/69878030?s=96&v=4"}
       />
+      <Rating rating={4.9} reviewCount={3120} reviewLabel="reviews" />
     </TabScreen>
   );
 }
