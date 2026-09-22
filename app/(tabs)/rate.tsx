@@ -1,14 +1,11 @@
 import { TabScreen } from "@/components/navigation/tab-screen";
-import { OfferSummaryCard } from "@/components/ui/offer-summary-card";
-import { Truck } from "lucide-react-native";
-import { ClientAvatar } from "@/components/ui/client-avatar";
-import { UserRatingHeader } from "@/components/ui/user-rating-header";
+import { OfferCard } from "@/components/ui/offer-card";
 import { View } from "react-native";
 
 export default function RateScreen() {
   return (
     <TabScreen title="Valorar" description="Valora los servicios que hayas completado.">
-      <OfferSummaryCard
+      {/* <OfferSummaryCard
         // datos (obligatorios)
         price="$85"
         eta="12 min"
@@ -43,6 +40,20 @@ export default function RateScreen() {
           rating={4.9}
           reviewCount={212}
           reviewLabel="reviews"
+        /> */}
+      {/* </View> */}
+
+      <View>
+        <OfferCard
+          name="Marcos Rivera"
+          rating={4.9}
+          reviewCount={312}
+          price={85}
+          eta="12 min"
+          distance="0.8 km"
+          onAccept={() => {
+            /* handle accept */
+          }}
         />
       </View>
     </TabScreen>
