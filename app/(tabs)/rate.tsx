@@ -2,7 +2,8 @@ import { TabScreen } from "@/components/navigation/tab-screen";
 import { OfferSummaryCard } from "@/components/ui/offer-summary-card";
 import { Truck } from "lucide-react-native";
 import { ClientAvatar } from "@/components/ui/client-avatar";
-import { Rating } from "@/components/ui/rating";
+import { UserRatingHeader } from "@/components/ui/user-rating-header";
+import { View } from "react-native";
 
 export default function RateScreen() {
   return (
@@ -29,13 +30,21 @@ export default function RateScreen() {
         variant="default" // o "card" para usar colores del theme (bg-card/border-border)
         borderClassName="border-white/20"
       />
-      <ClientAvatar
-        name="Maria Rueda"
-        size="lg"
-        color="secondary"
-        imageUrl={"https://avatars.githubusercontent.com/u/69878030?s=96&v=4"}
-      />
-      <Rating rating={4.9} reviewCount={3120} reviewLabel="reviews" />
+      <View className="flex-row items-center gap-3">
+        <ClientAvatar
+          name="Marcos Rivera"
+          size="lg"
+          color="secondary"
+          imageUrl={"https://avatars.githubusercontent.com/u/69878030?s=96&v=4"}
+        />
+        <UserRatingHeader
+          name="Marcos Rivera"
+          badgeLabel="Top Rated"
+          rating={4.9}
+          reviewCount={212}
+          reviewLabel="reviews"
+        />
+      </View>
     </TabScreen>
   );
 }
