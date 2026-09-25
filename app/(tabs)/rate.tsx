@@ -1,6 +1,8 @@
 import { TabScreen } from "@/components/navigation/tab-screen";
 import { ClientInfoCard } from "@/components/ui/client-info-card";
+import { InfoBanner } from "@/components/ui/info-banner";
 import { OfferCard } from "@/components/ui/offer-card";
+import { DollarSign } from "lucide-react-native";
 import { View } from "react-native";
 
 export default function RateScreen() {
@@ -10,6 +12,12 @@ export default function RateScreen() {
         name="Marcos Rivera"
         subtitle="Plumbing · Kitchen Sink Repair"
         avatarColor="secondary"
+      />
+      <InfoBanner
+        icon={DollarSign}
+        variant="warning"
+        title="Pay 100% directly to the technician"
+        description="Settle via cash or bank transfer. Our platform does not process payments — your agreement is with the technician."
       />
       {/* <OfferSummaryCard
         // datos (obligatorios)
