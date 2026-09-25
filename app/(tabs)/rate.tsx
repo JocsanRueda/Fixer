@@ -2,6 +2,7 @@ import { TabScreen } from "@/components/navigation/tab-screen";
 import { ClientInfoCard } from "@/components/ui/client-info-card";
 import { InfoBanner } from "@/components/ui/info-banner";
 import { OfferCard } from "@/components/ui/offer-card";
+import { StarRatingInput } from "@/components/ui/star-rating-input";
 import { DollarSign } from "lucide-react-native";
 import { View } from "react-native";
 
@@ -70,6 +71,8 @@ export default function RateScreen() {
           }}
         />
       </View>
+
+      <StarRatingInput defaultValue={5} onChange={() => {}} />
     </TabScreen>
   );
 }
