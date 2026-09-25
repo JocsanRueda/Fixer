@@ -1,10 +1,16 @@
 import { TabScreen } from "@/components/navigation/tab-screen";
+import { ClientInfoCard } from "@/components/ui/client-info-card";
 import { OfferCard } from "@/components/ui/offer-card";
 import { View } from "react-native";
 
 export default function RateScreen() {
   return (
     <TabScreen title="Valorar" description="Valora los servicios que hayas completado.">
+      <ClientInfoCard
+        name="Marcos Rivera"
+        subtitle="Plumbing · Kitchen Sink Repair"
+        avatarColor="secondary"
+      />
       {/* <OfferSummaryCard
         // datos (obligatorios)
         price="$85"
