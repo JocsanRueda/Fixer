@@ -4,8 +4,9 @@ import { CategoryCard } from "@/components/ui/category-card";
 import { MediaTextarea } from "@/components/ui/media-textarea";
 import { Text } from "@/components/ui/text";
 import { JOB_CATEGORIES } from "@/lib/categories";
-import { useEffect, useState } from "react";
-import { Keyboard, Platform, ScrollView, View } from "react-native";
+import { useScroll } from "@/src/hooks/useScroll";
+import { useState } from "react";
+import { ScrollView, View } from "react-native";
 
 export default function NewRequestScreen() {
   const [categoryId, setCategoryId] = useState<string | null>(null);
@@ -13,22 +14,7 @@ export default function NewRequestScreen() {
   const [budget, setBudget] = useState("50");
   const [keyboardHeight, setKeyboardHeight] = useState(0);
 
-  useEffect(() => {
-    // Android edge-to-edge doesn't resize the window, so KeyboardAvoidingView can't detect
-    // the keyboard height reliably — track it manually and reserve scroll space instead.
-    const showEvent = Platform.OS === "ios" ? "keyboardWillShow" : "keyboardDidShow";
-    const hideEvent = Platform.OS === "ios" ? "keyboardWillHide" : "keyboardDidHide";
-
-    const showSub = Keyboard.addListener(showEvent, (event) => {
-      setKeyboardHeight(event.endCoordinates.height);
-    });
-    const hideSub = Keyboard.addListener(hideEvent, () => setKeyboardHeight(0));
-
-    return () => {
-      showSub.remove();
-      hideSub.remove();
-    };
-  }, []);
+  useScroll({ setKeyboardHeight });
 
   const categoryCards = [];
   for (const category of JOB_CATEGORIES) {
