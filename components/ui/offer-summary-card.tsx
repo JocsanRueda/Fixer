@@ -46,7 +46,7 @@ type OfferSummaryCardVariantProps = VariantProps<typeof offerSummaryCardVariants
 type OfferSummaryCardProps = React.ComponentProps<typeof View> &
   React.RefAttributes<View> &
   OfferSummaryCardVariantProps & {
-    price: string | number;
+    price?: string | number;
     priceLabel?: string;
     priceClassName?: string;
     eta: string;
@@ -88,18 +88,22 @@ function OfferSummaryCard({
       value={variant === "card" ? "text-card-foreground" : "text-background"}
     >
       <View className={cn(offerSummaryCardVariants({ variant }), className)} {...props}>
-        <View className={cn(offerSummaryItemVariants({ variant }), "border-r", borderClassName)}>
-          <Text className={cn("text-lg font-bold text-emerald-400", priceClassName)}>{price}</Text>
-          <Text className={cn(offerSummaryLabelVariants({ variant }), labelClassName)}>
-            {priceLabel}
-          </Text>
-        </View>
+        {price !== undefined && (
+          <View className={cn(offerSummaryItemVariants({ variant }), "border-r", borderClassName)}>
+            <Text className={cn("text-lg font-bold text-emerald-400", priceClassName)}>
+              {price}
+            </Text>
+            <Text className={cn(offerSummaryLabelVariants({ variant }), labelClassName)}>
+              {priceLabel}
+            </Text>
+          </View>
+        )}
 
         <View
           className={cn(
             offerSummaryItemVariants({ variant }),
             itemClassName,
-            "flex-row items-center border-r",
+            "flex-row items-center justify-center border-r",
             borderClassName,
           )}
         >
@@ -116,7 +120,7 @@ function OfferSummaryCard({
           className={cn(
             offerSummaryItemVariants({ variant }),
             itemClassName,
-            "flex-row items-center",
+            "flex-row items-center justify-center",
             borderClassName,
           )}
         >

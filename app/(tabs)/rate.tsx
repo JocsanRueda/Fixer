@@ -1,14 +1,25 @@
-import { TabScreen } from "@/components/navigation/tab-screen";
 import { ClientInfoCard } from "@/components/ui/client-info-card";
 import { InfoBanner } from "@/components/ui/info-banner";
 import { OfferCard } from "@/components/ui/offer-card";
 import { StarRatingInput } from "@/components/ui/star-rating-input";
+import { Text } from "@/components/ui/text";
+import { WorkerTrackingCard } from "@/components/ui/worker-tracking-Card";
 import { DollarSign } from "lucide-react-native";
-import { View } from "react-native";
+import { ScrollView, View } from "react-native";
 
 export default function RateScreen() {
   return (
-    <TabScreen title="Valorar" description="Valora los servicios que hayas completado.">
+    <ScrollView
+      className="flex-1 bg-background"
+      contentContainerClassName="gap-6 p-6 mt-10"
+      keyboardShouldPersistTaps="handled"
+    >
+      <View className="gap-1.5">
+        <Text className="text-xs font-semibold uppercase tracking-wide text-primary">New job</Text>
+        <Text variant="h1" className="text-left">
+          What do you need fixed?
+        </Text>
+      </View>
       <ClientInfoCard
         name="Marcos Rivera"
         subtitle="Plumbing · Kitchen Sink Repair"
@@ -72,7 +83,20 @@ export default function RateScreen() {
         />
       </View>
 
+      <View>
+        <WorkerTrackingCard
+          name="Marcos Rivera"
+          rating={4.9}
+          reviewCount={312}
+          eta="12 min"
+          distance="0.8 km"
+          onAccept={() => {
+            /* handle accept */
+          }}
+        />
+      </View>
+
       <StarRatingInput defaultValue={5} onChange={() => {}} />
-    </TabScreen>
+    </ScrollView>
   );
 }
