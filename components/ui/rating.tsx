@@ -3,7 +3,6 @@ import { Text } from "@/components/ui/text";
 import { cn } from "@/lib/utils";
 import { Star, StarHalf } from "lucide-react-native";
 import { View } from "react-native";
-
 type RatingProps = {
   rating: number;
   reviewCount: number;

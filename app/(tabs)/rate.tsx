@@ -1,3 +1,5 @@
+import type { ActivitiesTimeLineProps } from "@/components/ui/activity-timeline";
+import { ActivityTimeline } from "@/components/ui/activity-timeline";
 import { ClientInfoCard } from "@/components/ui/client-info-card";
 import { InfoBanner } from "@/components/ui/info-banner";
 import { OfferCard } from "@/components/ui/offer-card";
@@ -8,6 +10,12 @@ import { DollarSign } from "lucide-react-native";
 import { ScrollView, View } from "react-native";
 
 export default function RateScreen() {
+  const activities: ActivitiesTimeLineProps["activities"] = [
+    { name: "Technician Arrive", day: "Monday", hour: "10:00 AM", status: "pending" },
+    { name: "Job Started", day: "Monday", hour: "10:30 AM", status: "pending" },
+    { name: "Job Completed", day: "Monday", hour: "11:30 AM", status: "completed" },
+  ];
+
   return (
     <ScrollView
       className="flex-1 bg-background"
@@ -97,6 +105,7 @@ export default function RateScreen() {
       </View>
 
       <StarRatingInput defaultValue={5} onChange={() => {}} />
+      <ActivityTimeline activities={activities} />
     </ScrollView>
   );
 }
