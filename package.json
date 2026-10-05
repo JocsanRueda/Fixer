@@ -13,6 +13,7 @@
     "doctor": "expo-doctor"
   },
   "dependencies": {
+    "@rn-primitives/aspect-ratio": "^1.5.2",
     "@rn-primitives/avatar": "^1.5.2",
     "@rn-primitives/portal": "~1.4.0",
     "@rn-primitives/slot": "^1.5.2",
