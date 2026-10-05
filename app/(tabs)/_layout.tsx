@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Icon } from "@/components/ui/icon";
 import { THEME } from "@/lib/theme";
 import { Tabs } from "expo-router";
-import { HouseIcon, SendIcon, StarIcon } from "lucide-react-native";
+import { HouseIcon, SendIcon, StarIcon, UserIcon } from "lucide-react-native";
 import { useColorScheme } from "nativewind";
 import type { ComponentProps } from "react";
 import { Platform } from "react-native";
@@ -62,6 +62,14 @@ export default function TabLayout() {
           title: "Valorar",
           tabBarButton: (props) => <TabBarButton {...props} />,
           tabBarIcon: ({ color, size }) => <Icon as={StarIcon} color={color} size={size} />,
+        }}
+      />
+      <Tabs.Screen
+        name="other"
+        options={{
+          title: "Perfil",
+          tabBarButton: (props) => <TabBarButton {...props} />,
+          tabBarIcon: ({ color, size }) => <Icon as={UserIcon} color={color} size={size} />,
         }}
       />
     </Tabs>

@@ -5,9 +5,11 @@ import { Star, StarHalf } from "lucide-react-native";
 import { View } from "react-native";
 type RatingProps = {
   rating: number;
-  reviewCount: number;
+  reviewCount?: number;
   maxRating?: number;
   reviewLabel?: string;
+  showValue?: boolean;
+  showReviewCount?: boolean;
   className?: string;
   starClassName?: string;
   valueClassName?: string;
@@ -28,6 +30,8 @@ function Rating({
   reviewCount,
   maxRating = 5,
   reviewLabel = "reviews",
+  showValue = true,
+  showReviewCount = true,
   className,
   starClassName,
   valueClassName,
@@ -51,18 +55,26 @@ function Rating({
       />
     );
   });
+  const accessibilityLabel =
+    reviewCount === undefined
+      ? `${safeRating} out of ${safeMaxRating}`
+      : `${safeRating} out of ${safeMaxRating}, ${reviewCount} ${reviewLabel}`;
 
   return (
     <View
       className={cn("flex-row items-center gap-1", className)}
       accessibilityRole="text"
-      accessibilityLabel={`${safeRating} out of ${safeMaxRating}, ${reviewCount} ${reviewLabel}`}
+      accessibilityLabel={accessibilityLabel}
     >
       <View className="flex-row items-center">{stars}</View>
-      <Text className={cn("text-sm font-semibold", valueClassName)}>{safeRating}</Text>
-      <Text className={cn("text-sm text-muted-foreground", reviewCountClassName)}>
-        ({reviewCount} {reviewLabel})
-      </Text>
+      {showValue ? (
+        <Text className={cn("text-sm font-semibold", valueClassName)}>{safeRating}</Text>
+      ) : null}
+      {showReviewCount && reviewCount !== undefined ? (
+        <Text className={cn("text-sm text-muted-foreground", reviewCountClassName)}>
+          ({reviewCount} {reviewLabel})
+        </Text>
+      ) : null}
     </View>
   );
 }
