@@ -1,5 +1,7 @@
 import { ClientProfileCard } from "@/components/ui/client-profile-card";
-import { ScrollView } from "react-native";
+import { SettingsCard } from "@/components/ui/settings-card";
+import { MapPin, CreditCard, Bell, Globe } from "lucide-react-native";
+import { ScrollView, Switch } from "react-native";
 
 export default function OtherScreen() {
   // const projects = [
@@ -81,6 +83,32 @@ export default function OtherScreen() {
         projects={projects}
       /> */}
       <ClientProfileCard name="Carlos Mendoza" email="carlos.mendoza@email.com" />
+      <SettingsCard
+        title="Account"
+        items={[
+          {
+            id: "addr",
+            icon: MapPin,
+            title: "Saved Addresses",
+            subtitle: "Home, Office",
+            href: undefined,
+          },
+          { id: "pay", icon: CreditCard, title: "Payment Methods", href: undefined },
+        ]}
+      />
+
+      <SettingsCard
+        title="Preferences"
+        items={[
+          {
+            id: "push",
+            icon: Bell,
+            title: "Push Notifications",
+            control: <Switch />,
+          },
+          { id: "lang", icon: Globe, title: "Language", linkLabel: "English", href: undefined },
+        ]}
+      />
     </ScrollView>
   );
 }
